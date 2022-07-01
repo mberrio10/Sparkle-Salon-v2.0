@@ -1,0 +1,38 @@
+/* 
+---Fonts To Remember---
+
+Abril Fatface
+'Vollkorn', serif
+Ubuntu
+Lato
+Great Vibes = banner font
+
+use Ctrl D to select all with the same name
+
+ */
+
+@import './abstracts/functions';
+@import './abstracts/mixins';
+@import './abstracts/variables';
+
+@import './base/animations';
+@import './base/base';
+@import './base/typography';
+@import './base/utilities';
+
+@import './components/bg-video';
+@import './components/button';
+@import './components/card';
+@import './components/composition';
+@import './components/feature-box';
+@import './components/overview';
+@import './components/price-table';
+@import './components/review';
+
+@import './layout/about';
+@import './layout/banners';
+@import './layout/footer';
+@import './layout/header';
+
+@import './pages/home';
+@import './pages/salon-views';

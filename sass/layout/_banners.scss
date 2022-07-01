@@ -1,0 +1,38 @@
+.hair-banner { 
+    height: 50vh;
+    background-image: linear-gradient(
+        to right bottom,
+        rgba($color-blackGold-light, 0.87),
+        rgba($color-blackGold, 0.87)
+      ),
+      url('..//img/hair-banner.jpg');
+    background-size: cover;
+    background-position: top;
+    position: relative;
+  }
+
+.nails-banner {
+    height: 57vh;
+    background-image: linear-gradient(
+        to right bottom,
+        rgba($color-blackGold-light, 0.87),
+        rgba($color-blackGold, 0.87)
+      ),
+      url('..//img/beautiful-golden-nails.jpg');
+    background-size: cover;
+    background-position: top;
+    position: relative;
+  }
+  
+.about-banner {
+    height: 57vh;
+    background-image: linear-gradient(
+        to right bottom,
+        rgba($color-blackGold-light, 0.87),
+        rgba($color-blackGold, 0.87)
+      ),
+      url('..//img/perfect-hair.jpg');
+    background-size: cover;
+    background-position: top;
+    position: relative;
+  }

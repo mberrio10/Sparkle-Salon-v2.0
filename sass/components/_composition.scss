@@ -1,0 +1,49 @@
+.composition {
+  position: relative; 
+
+  &__photo {
+    width: 45%;
+    box-shadow: 0 1.5rem 4rem rgba($color-brightOrange-gold, 0.4);
+    border-radius: 2px;
+    position: absolute;
+    z-index: 10;
+    transition: all 0.2s;
+
+    &--p1 {
+      left: -3%;
+      top: 0;
+    }
+
+    &--p2 {
+      left: 30%;
+      top: -1rem;
+    }
+
+    &--p3 {
+      right: -3%;
+      top: 1rem;
+    }
+
+    &:hover {
+      transform: scale(1.05) translateY(-0.5rem);
+      box-shadow: 0 2.5rem 4rem rgba($color-brightOrange-gold, 0.5);
+      z-index: 20;
+    }
+  }
+
+  //what this code does here is that when the the user hover the composition then it will select the photo that is not hover and shrink them
+  &:hover &__photo:not(:hover) {
+    transform: scale(0.95);
+  }
+}
+
+//HAIR VIEW GALLERY
+
+.hair-gallery, .nails-gallery {
+  display: flex;
+
+  &__photo {
+    width: 100%;
+    display: block;
+  }
+}

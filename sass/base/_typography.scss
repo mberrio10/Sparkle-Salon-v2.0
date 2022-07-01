@@ -1,0 +1,72 @@
+/* I set the overall fonts on the body element because all the properties related to font are inherit */
+body {
+  font-family: 'GFS Didot', serif;
+  font-weight: 400;
+  line-height: 1.2;
+  background-color: $color-blackGold-base;
+  color: $color-metallic-gold;
+  padding: 3rem; // 30px/10px = 3rem
+}
+
+.heading-primary {
+  color: $color-metallic-gold;
+
+  backface-visibility: hidden;
+
+  &--main {
+    display: block;
+    font-family: 'Great Vibes', cursive;
+    font-size: 30rem;
+    font-weight: 500;
+    letter-spacing: 3.5rem;
+
+    animation-name: moveInLeft;
+    animation-duration: 1s;
+    animation-timing-function: ease-out;
+  }
+
+  &--Sub {
+    display: block; /* block elements occupy the entire width they have available and in this case creates line breaks before and after */
+    font-size: 7.5rem;
+    font-weight: 500;
+    text-align: right;
+    letter-spacing: 1.5rem;
+
+    animation: moveInRight 1s ease-out; /* here I can use the "animation" property only and put all the parameters and CSS will figure it out the rest*/
+  }
+}
+
+.social-icon {
+  color: $color-metallic-gold;
+  font-size: 2.7rem;
+  padding: 0.6rem 0.5rem 1.1rem;
+}
+
+.heading-secondary {
+  display: inline-block; //i set it like that so it occupies only until the text finishes. without this the element will occupy 100% of its available width
+  font-size: 4.5rem;
+  text-transform: uppercase;
+  font-weight: 700;
+  background-image: linear-gradient(
+    to right,
+    $color-light-gold,
+    $color-brightOrange-gold
+  );
+  -webkit-background-clip: text; // i use this web-kit property so it cuts the background and sets it exactly where letters are
+  color: transparent; // then i put the color: transparent because the gradient is actually sitting behind the text
+  letter-spacing: 0.2rem;
+}
+
+.heading-tertiary {
+  font-size: $default-font-size;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.paragraph {
+  font-size: $default-font-size;
+
+  &:not(:last-child) {
+    margin-bottom: 3rem;
+  }
+}

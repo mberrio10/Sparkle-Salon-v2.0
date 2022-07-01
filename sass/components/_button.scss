@@ -1,0 +1,72 @@
+.btn-text {
+  &:link,
+  &:visited {
+    font-size: $default-font-size;
+    position: relative;
+    color: $color-primary-gold;
+    display: inline-block;
+    text-decoration: none;
+    border-bottom: 1px solid $color-primary-gold;
+    background-image: linear-gradient(
+      90deg,
+      transparent 0%,
+      transparent 50%,
+      $color-light-gold 50%
+    );
+    background-size: 200%;
+    padding: 6px;
+    transition: all 0.2s;
+  }
+
+  &:hover {
+    background-position: 200%;
+    background-color: $color-primary-gold;
+    color: $color-blackGold;
+    box-shadow: 0 1rem 2rem rgba($color-brightOrange-gold, 0.15);
+    transform: translateY(-2px);
+  }
+
+  &:active {
+    box-shadow: 0 0.5rem 1rem rgba($color-brightOrange-gold, 0.15);
+    transform: translateY(0);
+  }
+}
+
+.btn-inline {
+  border: none;
+  color: $color-metallic-gold;
+  font-size: inherit;
+  border-bottom: 1px solid currentColor;
+  padding: 2px;
+  display: inline-block;
+  background-color: transparent;
+  cursor: pointer;
+  transition: all 0.2s;
+
+  &:hover {
+      color: #aaa9ad;
+  }
+
+  &:focus {
+      outline: none;
+      animation: pulsate 1s infinite;
+  }
+
+}
+
+@keyframes pulsate {
+  0% {
+      transform: scale(1);
+      box-shadow: none;
+  }
+
+  50% {
+      transform: scale(1);
+      box-shadow: 0 1rem 4rem rgba($color-brightOrange-gold, 0.25);
+  }
+
+  100% {
+      transform: scale(1);
+      box-shadow: none;
+  }
+} 

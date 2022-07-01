@@ -1,0 +1,156 @@
+.services {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+.cards {
+  position: relative;
+  perspective: 150rem;
+  overflow: hidden;
+  height: 50rem;
+  width: 35rem;
+  font-size: 1.7rem;
+  border-radius: 3px;
+  box-shadow: 0 1.5rem 3.9rem rgba($color-brightOrange-gold, 0.15);
+
+  &__image {
+    background-size: cover;
+    height: 100%;
+    background-blend-mode: multiply;
+
+    &--1 {
+      background-image: linear-gradient(
+          to right bottom,
+          $color-light-gold,
+          $color-brightOrange-gold
+        ),
+        url(/img/woman-hair.jpg);
+    }
+
+    &--2 {
+      background-image: linear-gradient(
+          to right bottom,
+          $color-light-gold,
+          $color-brightOrange-gold
+        ),
+        url(/img/woman-nails.jpg);
+    }
+
+    &--3 {
+      background-image: linear-gradient(
+          to right bottom,
+          $color-light-gold,
+          $color-brightOrange-gold
+        ),
+        url(/img/hair-accessories.jpg);
+    }
+  }
+
+  &__overlay {
+    position: absolute;
+    top: 0;
+    left: -141%;
+    width: 100%;
+    height: 100%;
+    background-color: rgba($color-blackGold-light, 0.7);
+    transform: skewX(-30deg);
+    transition: all 0.9s ease;
+  }
+
+  &:hover &__overlay {
+    left: 0;
+  }
+
+  &__content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 80%;
+    box-sizing: border-box;
+    padding: 2.5rem;
+    z-index: 1000;
+    text-shadow: 0.5rem 0.5rem 0.1rem $color-blackGold;
+    transition: all 0.6s ease;
+
+    &-line {
+      position: absolute;
+      background-color: $color-light-gold;
+      transition: all 0.6s ease-in-out;
+
+      &--1 {
+        top: 0;
+        left: -2rem;
+        width: 0;
+        height: 1px;
+        transform-origin: left;
+        transition-delay: 0.6s;
+      }
+
+      &--2 {
+        top: -2rem;
+        left: 0;
+        width: 1px;
+        height: 0;
+        transform-origin: top;
+        transition-delay: 1s;
+      }
+
+      &--3 {
+        bottom: 0;
+        right: -2rem;
+        width: 0;
+        height: 1px;
+        transform-origin: right;
+        transition-delay: 0.9s;
+      }
+
+      &--4 {
+        bottom: -2rem;
+        right: 0;
+        width: 1px;
+        height: 0;
+        transform-origin: left;
+        transition-delay: 1.2s;
+      }
+    }
+
+    &-title {
+      letter-spacing: 0.1rem;
+      opacity: 0;
+      transition: all 0.6s ease;
+      transition-timing-function: linear;
+      transform: translateY(-1rem);
+    }
+
+    &-text {
+      opacity: 0;
+      transform: translateY(1rem);
+      transition: all 0.6s ease;
+      transition-timing-function: linear;
+    }
+  }
+
+  &:hover &__content-line--1,
+  &:hover &__content-line--3 {
+    width: 115%;
+  }
+
+  &:hover &__content-line--2,
+  &:hover &__content-line--4 {
+    height: 135%;
+  }
+
+  &:hover &__content-title {
+    transform: translateY(0);
+    opacity: 1;
+    transition-delay: 1.5s;
+  }
+
+  &:hover &__content-text {
+    transform: translateY(0);
+    opacity: 1;
+    transition-delay: 1.8s;
+  }
+}

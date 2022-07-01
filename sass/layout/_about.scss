@@ -1,0 +1,14 @@
+.content {
+  display: flex;
+}
+
+.gallery {
+  flex: 0 0 50%;
+}
+
+.description {
+  flex: 1;
+  padding: 3rem;
+  margin-left: 6rem;
+  line-height: 1.7;
+}

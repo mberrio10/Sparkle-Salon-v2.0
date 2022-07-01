@@ -1,0 +1,63 @@
+<%- include ("header") -%>
+<header class="about-banner">
+  <!-- the logo-box is an element because it can only live in the block and has no meaning on its own so we write the __ add the block with the element -->
+  <div class="header__text-box">
+    <!-- the h1 in this case is not an element is block because we could use this class in another block -->
+    <h1 class="heading-primary">
+      <!-- in this case we use the "--" because is a modifier of the block -->
+      <span class="heading-primary--main"> Sparkle </span>
+      <span class="heading-primary--Sub">
+        Salon
+        <a target="#" href="https://www.facebook.com/sparklesalonboutique/"
+          ><i class="social-icon fab fa-facebook"></i></a
+        ><a target="#" href="https://www.instagram.com/sparklesalonboutique/"
+          ><i class="social-icon fab fa-instagram"></i
+        ></a>
+      </span>
+    </h1>
+  </div>
+</header>
+
+<main class="about-view">
+    <div class="about-contact">
+        <h3 class="heading-tertiary u-margin-bottom-small u-text-center">
+            Chevy Chase Plaza
+        </h3>
+        <p class="about-address u-text-center u-margin-bottom-small">
+            <span class="about-address--street paragraph">10912 Wiles Rd</span>
+            <br>
+            <span class="about-address--city paragraph">Coral Springs, FL 33076</span>
+        </p>
+        <p class="about-contact__number u-text-center" ><a class="about-contact__telephone" href="tel:+9542455619">(954) 245-5619</a></p>
+        <table>
+            <caption class="heading-tertiary u-margin-bottom-small u-text-center">Hours</caption>
+            <tbody>
+              <tr>
+                <td>Monday</td>
+                <td>Closed</td>
+              </tr>
+              <tr>
+                <td>Tues, Wed, Thurs</td>
+                <td>9:00am - 6:00pm</td>
+              </tr>
+              <tr>
+                <td>Friday</td>
+                <td>9:00am - 7:00pm</td>
+              </tr>
+              <tr>
+                <td>Saturday</td>
+                <td>9:00am - 5:00pm</td>
+              </tr>
+              <tr>
+                <td>Sunday</td>
+                <td>Closed</td>
+              </tr>
+            </tbody>
+          </table>
+    </div>
+    <div class="about-map">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d14308.891157543241!2d-80.2718348!3d26.2868767!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xff292cb763ba6a13!2sSparkle%20Salon!5e0!3m2!1sen!2sus!4v1573933697361!5m2!1sen!2sus" width="600" height="450" frameborder="0" allowfullscreen="" style="border: 0px;"></iframe>
+    </div>
+</main>
+
+<%- include ("footer") -%>

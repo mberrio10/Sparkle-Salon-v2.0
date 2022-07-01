@@ -1,0 +1,56 @@
+.hair-view, .nails-view {
+    background-color: $color-blackGold;
+}
+
+.detail {
+    font-size: 1.5rem;
+    display: flex;
+    padding: 4.5rem;
+    border-radius: var(--line);
+}
+
+.about-view {
+    background-color: $color-blackGold;
+    font-size: 1.5rem;
+    display: flex;
+    padding: 4.5rem;
+    border-radius: var(--line);
+}
+
+.hair-description {
+    background-color: $color-blackGold-light;
+    box-shadow: 0 1.5rem 3.9rem rgba($color-brightOrange-gold, 0.15);
+    padding: 3rem;
+    flex:  0 0 60%;
+    margin-right: 4.5rem;
+}
+
+.about-contact {
+    background-color: $color-blackGold-light;
+    box-shadow: 0 1.5rem 3.9rem rgba($color-brightOrange-gold, 0.15);
+    padding: 3rem;
+    flex:  0 0 50%;
+    margin-right: 4.5rem;
+
+    &__telephone {
+        text-decoration: none;
+        color: inherit;
+    }
+}
+
+.client-reviews {
+    flex: 1;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.about-map {
+    flex: 1;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}

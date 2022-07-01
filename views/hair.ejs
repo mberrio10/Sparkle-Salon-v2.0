@@ -1,0 +1,161 @@
+<%- include ("header") -%>
+<header class="hair-banner">
+  <!-- the logo-box is an element because it can only live in the block and has no meaning on its own so we write the __ add the block with the element -->
+  <!-- <div class="header__logo-box">
+    <img src="img/logo.jpg" alt="Logo" class="header__logo" />
+  </div> -->
+  <div class="header__text-box">
+    <!-- the h1 in this case is not an element is block because we could use this class in another block -->
+    <h1 class="heading-primary">
+      <!-- in this case we use the "--" because is a modifier of the block -->
+      <span class="heading-primary--main"> Sparkle </span>
+      <span class="heading-primary--Sub">
+        Hair
+        <a target="#" href="https://www.facebook.com/sparklesalonboutique/"
+          ><i class="social-icon fab fa-facebook"></i></a
+        ><a target="#" href="https://www.instagram.com/sparklesalonboutique/"
+          ><i class="social-icon fab fa-instagram"></i
+        ></a>
+      </span>
+    </h1>
+  </div>
+</header>
+
+<main class="hair-view">
+  <div class="hair-gallery">
+    <figure class="hair-gallery__item">
+      <img src="img/hairdresser-haircut.jpg" alt="Photo of hairdresser coloring" class="hair-gallery__photo">
+    </figure>
+    <figure class="hair-gallery__item">
+      <img src="img/hairdresser-washing.jpg" alt="Photo of hairdresser coloring" class="hair-gallery__photo">
+    </figure>
+    <figure class="hair-gallery__item">
+      <img src="img/hairdresser-salon.jpg" alt="Photo of hairdresser coloring" class="hair-gallery__photo">
+    </figure>
+  </div>
+
+  <div class="overview">
+    <h1 class="overview__heading">Sparkle Salon Boutique</h1>
+    <div class="overview__stars">
+      <svg class="overview__icon-star"><use xlink:href="img/sprite.svg#icon-star"></svg>
+      <svg class="overview__icon-star"><use xlink:href="img/sprite.svg#icon-star"></svg>
+      <svg class="overview__icon-star"><use xlink:href="img/sprite.svg#icon-star"></svg>
+      <svg class="overview__icon-star"><use xlink:href="img/sprite.svg#icon-star"></svg>
+      <svg class="overview__icon-star"><use xlink:href="img/sprite.svg#icon-star"></svg>
+    </div>
+
+    <div class="overview__location">
+      <svg class="overview__icon-location"><use xlink:href="img/sprite.svg#icon-location-pin"></svg>
+        <button class="btn-inline">Coral Springs, Florida</button>
+    </div>
+
+    <div class="overview__rating">
+      <div class="overview__rating-average">9.0</div>
+      <div class="overview__rating-count">429 votes</div>
+    </div>
+  </div>
+
+  <div class="detail">
+    <div class="hair-description">
+      <p class="paragraph">
+        Our creative team of professionals are highly trained and experienced, they are dedicated to provide you with the latest techniques and trends to suit your needs. Sparkle Salon is dedicated to providing each of our guests with a gratifying experience every time they visit.
+      </p>
+      <table>
+        <caption class="heading-tertiary u-margin-bottom-small u-text-center">Our Services</caption>
+        <tbody>
+          <tr>
+            <td>Womens hair cut</td>
+            <td>$35</td>
+          </tr>
+          <tr>
+            <td>Mens hair cut</td>
+            <td>$25</td>
+          </tr>
+          <tr>
+            <td>Deep Conditioner Treatment</td>
+            <td>$25+</td>
+          </tr>
+          <tr>
+            <td>Blow Dry</td>
+            <td>$30+</td>
+          </tr>
+          <tr>
+            <td>Hair Cut and Blow Dry</td>
+            <td>$55+</td>
+          </tr>
+          <tr>
+            <td>Single Process</td>
+            <td>$60+</td>
+          </tr>
+          <tr>
+            <td>Gloss</td>
+            <td>$30+</td>
+          </tr>
+          <tr>
+            <td>Partial Hi-Lights</td>
+            <td>$75+</td>
+          </tr>
+          <tr>
+            <td>Full Hi-Lights</td>
+            <td>$125+</td>
+          </tr>
+          <tr>
+            <td>Brazilian Blowout Treatment</td>
+            <td>$120+</td>
+          </tr>
+          <tr>
+            <td>Color Correction</td>
+            <td>By Consultation Only</td>
+          </tr>
+        </tbody>
+      </table>
+      <div class="recommended">
+        <p class="recommended__count">
+          Wilma and others recommended this Beauty Salon
+        </p>
+        <div class="recommended__clients">
+          <img src="/img/user-2.jpg" alt="Client 1" class="recommended__photo">
+          <img src="/img/user-6.jpg" alt="Client 2" class="recommended__photo">
+          <img src="/img/user-3.jpg" alt="Client 3" class="recommended__photo">
+          <img src="/img/user-4.jpg" alt="Client 4" class="recommended__photo">
+        </div>
+      </div>
+    </div>
+    
+    <div class="client-reviews">
+      <figure class="hair-review">
+        <blockquote class="hair-review__text">
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Possimus officia nemo quasi et. Quis quam magni ipsum!
+        </blockquote>
+        <figcaption class="hair-review__client">
+          <img src="/img/user-2.jpg" alt="Sparkle Customer" class="hair-review__photo">
+          <div class="hair-review__client-box">
+            <p class="hair-review__client-name">Jane Smith</p>
+            <p class="hair-review__client-date">Jan 19th, 2022</p>
+          </div>
+          <div class="hair-review__rating">8.4</div>
+        </figcaption>
+      </figure>
+      
+      <figure class="hair-review">
+        <blockquote class="hair-review__text">
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Possimus officia nemo quasi et. Quis quam magni ipsum!
+        </blockquote>
+        <figcaption class="hair-review__client">
+          <img src="/img/user-6.jpg" alt="Sparkle Customer" class="hair-review__photo">
+          <div class="hair-review__client-box">
+            <p class="hair-review__client-name">Mary Smith</p>
+            <p class="hair-review__client-date">Dec 23th, 2021</p>
+          </div>
+          <div class="hair-review__rating">9.3</div>
+        </figcaption>
+      </figure> 
+      <button class="btn-inline">Show More <span>&rarr;</span></button>  
+    </div>
+  </div>
+  <div class="cta">
+    <h2 class="cta__book-now">Hey! what are you waiting for, call now and make an appointment with us!</h2>
+    <a href="#" class="btn-text"> Book Appointment &rarr; </a>
+  </div>
+</main>
+<%- include ("footer") -%>

@@ -1,0 +1,271 @@
+<%- include ("header") -%>
+<!-- in the BEM system the header is a block because is a stand alone component that is meaningful on his own  -->
+<header class="header">
+  <!-- the logo-box is an element because it can only live in the block and has no meaning on its own so we write the __ add the block with the element -->
+  <div class="header__text-box">
+    <!-- the h1 in this case is not an element is block because we could use this class in another block -->
+    <h1 class="heading-primary">
+      <!-- in this case we use the "--" because is a modifier of the block -->
+      <span class="heading-primary--main"> Sparkle </span>
+      <span class="heading-primary--Sub">
+        Salon
+        <a target="#" href="https://www.facebook.com/sparklesalonboutique/"
+          ><i class="social-icon fab fa-facebook"></i></a
+        ><a target="#" href="https://www.instagram.com/sparklesalonboutique/"
+          ><i class="social-icon fab fa-instagram"></i
+        ></a>
+      </span>
+    </h1>
+  </div>
+</header>
+
+<main>
+  <div class="about-section">
+    <div class="u-text-center u-margin-bottom-big">
+      <h2 class="heading-secondary">Our Salon</h2>
+    </div>
+    <div class="content">
+      <div class="gallery">
+        <div class="composition">
+          <img
+            src="img/hairdresser-1.jpg"
+            alt="Photo 1"
+            class="composition__photo composition__photo--p1"
+          />
+          <img
+            src="img/hairdresser-3.jpg"
+            alt="Photo 2"
+            class="composition__photo composition__photo--p3"
+          />
+          <img
+            src="img/hairdresser-2.jpg"
+            alt="photo 3"
+            class="composition__photo composition__photo--p2"
+          />
+        </div>
+      </div>
+      <div class="description">
+        <p class="paragraph">
+          Located in Coral Springs, Sparkle Beauty Salon is committed to
+          providing total beauty and satisfaction while creating a unique
+          portrait of style for each individual. Our luxury hair case care salon
+          is specialized in the art of outstanding hair, offering an exquisite
+          range of innovative and elegant styles. Your hair is your best
+          accessory: designed by us, worn beautifully by you!
+        </p>
+        <a href="#" class="btn-text"> Contact Us &rarr; </a>
+      </div>
+    </div>
+  </div>
+
+  <section class="features-section">
+    <div class="features">
+      <div class="feature">
+        <div class="feature-box u-text-center">
+          <svg class="feature-box__icon">
+            <use xlink:href="img/sprite.svg#icon-woman-hair-cut"></use>
+          </svg>
+          <h3 class="heading-tertiary u-margin-bottom-small">
+            Explore the world
+          </h3>
+          <p class="feature-box__text">
+            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Aperiam,
+            ipsum sapiente aspernatur.
+          </p>
+        </div>
+      </div>
+
+      <div class="feature">
+        <div class="feature-box u-text-center">
+          <svg class="feature-box__icon">
+            <use xlink:href="img/sprite.svg#icon-hairdryer-and-comb"></use>
+          </svg>
+          <h3 class="heading-tertiary u-margin-bottom-small">
+            Explore the world
+          </h3>
+          <p class="feature-box__text">
+            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Aperiam,
+            ipsum sapiente aspernatur.
+          </p>
+        </div>
+      </div>
+
+      <div class="feature">
+        <div class="feature-box u-text-center">
+          <svg class="feature-box__icon">
+            <use xlink:href="img/sprite.svg#icon-nail-file"></use>
+          </svg>
+          <h3 class="heading-tertiary u-margin-bottom-small">
+            Explore the world
+          </h3>
+          <p class="feature-box__text">
+            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Aperiam,
+            ipsum sapiente aspernatur.
+          </p>
+        </div>
+      </div>
+
+      <div class="feature">
+        <div class="feature-box u-text-center">
+          <svg class="feature-box__icon">
+            <use xlink:href="img/sprite.svg#icon-nail"></use>
+          </svg>
+          <h3 class="heading-tertiary u-margin-bottom-small">
+            Explore the world
+          </h3>
+          <p class="feature-box__text">
+            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Aperiam,
+            ipsum sapiente aspernatur.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section-services">
+    <div class="services">
+      <div class="cards u-text-center">
+        <div class="cards__image cards__image--1">&nbsp;</div>
+        <div class="cards__overlay">&nbsp;</div>
+        <div class="cards__content">
+          <span class="cards__content-line cards__content-line--1">&nbsp;</span>
+          <span class="cards__content-line cards__content-line--2">&nbsp;</span>
+          <span class="cards__content-line cards__content-line--3">&nbsp;</span>
+          <span class="cards__content-line cards__content-line--4">&nbsp;</span>
+          <h3
+            class="cards__content-title heading-tertiary u-margin-bottom-small"
+          >
+            Overlay Title
+          </h3>
+          <p class="cards__content-text">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+          </p>
+        </div>
+      </div>
+      <div class="cards u-text-center">
+        <div class="cards__image cards__image--2">&nbsp;</div>
+        <div class="cards__overlay">&nbsp;</div>
+        <div class="cards__content">
+          <span class="cards__content-line cards__content-line--1">&nbsp;</span>
+          <span class="cards__content-line cards__content-line--2">&nbsp;</span>
+          <span class="cards__content-line cards__content-line--3">&nbsp;</span>
+          <span class="cards__content-line cards__content-line--4">&nbsp;</span>
+          <h3
+            class="cards__content-title heading-tertiary u-margin-bottom-small"
+          >
+            Overlay Title
+          </h3>
+          <p class="cards__content-text">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+          </p>
+        </div>
+      </div>
+      <div class="cards u-text-center">
+        <div class="cards__image cards__image--3">&nbsp;</div>
+        <div class="cards__overlay">&nbsp;</div>
+        <div class="cards__content">
+          <span class="cards__content-line cards__content-line--1">&nbsp;</span>
+          <span class="cards__content-line cards__content-line--2">&nbsp;</span>
+          <span class="cards__content-line cards__content-line--3">&nbsp;</span>
+          <span class="cards__content-line cards__content-line--4">&nbsp;</span>
+          <h3
+            class="cards__content-title heading-tertiary u-margin-bottom-small"
+          >
+            Overlay Title
+          </h3>
+          <p class="cards__content-text">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section-reviews">
+    <div class="bg-video">
+      <!-- Video by RODNAE Productions from Pexels / Video by ArtHouse Studio from Pexels / Video by cottonbro from Pexels -->
+      <video class="bg-video__content" autoplay muted loop>
+        <source src="img/salon-hair-dressign.mp4" type="video/mp4" />
+        Your browser is not supported!
+      </video>
+    </div>
+    <div class="u-text-center u-margin-bottom-big">
+      <h2 class="heading-secondary">Our happy clients</h2>
+    </div>
+    <div
+      id="carouselReview"
+      class="carousel slide carousel-fade"
+      data-bs-ride="carousel"
+    >
+      <div class="carousel-inner">
+        <div class="carousel-item active">
+          <div class="review">
+            <figure class="review__shape">
+              <img
+                src="img/user-2.jpg"
+                alt="Sparkle Salon Client"
+                class="review__img"
+              />
+              <figcaption class="review__caption">Mary Smith</figcaption>
+            </figure>
+            <div class="review__text">
+              <h3 class="heading-tertiary u-margin-bottom-small">
+                She is an expert in hair color!
+              </h3>
+              <p>
+                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ex
+                odit corporis cum, cupiditate esse quia corrupti. Quis, natus.
+                Iste et iure nemo hic quia reprehenderit ut quasi explicabo odio
+                esse! Dicta minima ullam explicabo quibusdam aperiam. Aperiam,
+                ipsum sapiente aspernatur.
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="carousel-item">
+          <div class="review">
+            <figure class="review__shape">
+              <img
+                src="img/user-6.jpg"
+                alt="Sparkle Salon Client"
+                class="review__img"
+              />
+              <figcaption class="review__caption">Janet Wilson</figcaption>
+            </figure>
+            <div class="review__text">
+              <h3 class="heading-tertiary u-margin-bottom-small">
+                WOW! My hair looks amazing
+              </h3>
+              <p>
+                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ex
+                odit corporis cum, cupiditate esse quia corrupti. Quis, natus.
+                Iste et iure nemo hic quia reprehenderit ut quasi explicabo odio
+                esse! Dicta minima ullam explicabo quibusdam aperiam. Aperiam,
+                ipsum sapiente aspernatur.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <button
+        class="carousel-control-prev"
+        type="button"
+        data-bs-target="carouselReview"
+        data-bs-slide="prev"
+      >
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+      </button>
+      <button
+        class="carousel-control-next"
+        type="button"
+        data-bs-target="carouselReview"
+        data-bs-slide="next"
+      >
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+      </button>
+    </div>
+  </section>
+</main>
+<%- include ("footer") -%>

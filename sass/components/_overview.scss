@@ -1,0 +1,94 @@
+.overview {
+    display: flex;
+    align-items: center;
+    border-bottom: var(--line);
+
+    &__heading {
+        font-size: 2.25rem;
+        font-weight: 300;
+        letter-spacing: 1px;
+        padding: 1.5rem 3rem;
+    }
+    &__stars {
+        margin-right: auto;
+        display: flex;
+    }
+
+    &__icon-star, &__icon-location {
+        width: 1.75rem;
+        height:  1.75rem;
+        fill: $color-light-gold;
+    }
+
+    &__location {
+        font-size: 1.2rem;
+        display: flex;
+        align-items: center;
+    }
+
+    &__icon-location {
+        margin-right: 0.6rem;
+    }
+
+    &__rating {
+        background-color: $color-primary-gold;  
+        color: $color-blackGold-base; 
+        margin-left: 3rem;
+        padding: 0 2.25rem;
+        align-self: stretch;
+        
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+
+    &__rating-average {
+        font-size: 2.25rem;
+        font-weight: 300;
+    }
+
+    &__rating-count {
+        font-size: 0.8rem;
+        text-transform: uppercase;
+        font-weight: 600;
+    }
+}
+
+.recommended {
+    font-size: 1.5rem;
+    display: flex;
+    align-items: center;
+
+    &__count {
+        margin-right: auto;
+    }
+
+    &__clients {
+        display: flex;
+    }
+
+    &__photo {
+        box-sizing: content-box;
+        height: 4rem;
+        width: 4rem;
+        border-radius: 50%;
+        border: 3px solid #f7ef8a;
+
+        &:not(:last-child) {
+            margin-right: -2rem;
+        }
+    }
+}
+
+.cta {
+    padding: 3.6rem;
+    text-align: center;
+
+    &__book-now {
+        font-size: 2rem;
+        font-weight: 300;
+        text-transform: uppercase;
+        margin-bottom: 2.5rem;
+    }
+}

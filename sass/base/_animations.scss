@@ -1,0 +1,45 @@
+@keyframes moveInLeft {
+  /*I use @keyframe for animation and you have to give the animation a name, for browser performance is ideal to animate to properties "transform" and "opacity"*/
+  0% {
+    /*I indicate here what I want the animation to do and 0% is when the animation starts*/
+    opacity: 0; /* I want to be invisible so at the beginning the opacity will be 0 */
+    transform: translateX(
+      -10rem
+    ); /*I want to animate from left to right so I do it in the x direction*/
+  }
+
+  80% {
+    transform: translateX(1.2rem);
+  }
+
+  100% {
+    /*is when the animation finishes */
+    opacity: 1;
+    transform: translate(
+      0
+    ); /*I use translate 0 because I want at the end to look as it is right now*/
+  }
+}
+
+@keyframes moveInRight {
+  /*I use @keyframe for animation and you have to give the animation a name, for browser performance is ideal to animate to properties "transform" and "opacity"*/
+  0% {
+    /*I indicate here what I want the animation to do and 0% is when the animation starts*/
+    opacity: 0; /* I want to be invisible so at the beginning the opacity will be 0 */
+    transform: translateX(
+      10rem
+    ); /*I want to animate from left to right so I do it in the x direction*/
+  }
+
+  80% {
+    transform: translateX(-1.2rem);
+  }
+
+  100% {
+    /*is when the animation finishes */
+    opacity: 1;
+    transform: translate(
+      0
+    ); /*I use translate 0 because I want at the end to look as it is right now*/
+  }
+}
