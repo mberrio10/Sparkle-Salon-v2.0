@@ -24,6 +24,6 @@ index.get('/about', (req, res) => {
 });
 
 
-index.listen(3000, () => {
+index.listen(process.env.PORT || 3000, () => {
   console.log('Sever started on port 3000');
 });
