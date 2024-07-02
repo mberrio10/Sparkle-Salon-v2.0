@@ -4,31 +4,93 @@
   display: flex;
   align-items: center;
   justify-content: space-evenly;
+
+  @media only screen and (max-width: $bp-small) {
+    max-width: 15rem;
+    flex-wrap: wrap;
+  }
 }
 
 .feature {
-  width: 25rem;
+  height: 33rem;
   background-color: rgba($color-blackGold-light, 0.8);
   border-radius: 3px;
   box-shadow: 0 1.5rem 4rem rgba($color-blackGold, 0.15);
   transition: transform 0.3s;
 
+  @media only screen and (max-width: $bp-mediumLarge-2) {
+    height: 25.3rem;
+  }
+
+  @media only screen and (max-width: $bp-mediumLarge-2) {
+    height: 24rem;
+  }
+
+  @media only screen and (max-width: $bp-medium-small) {
+    height: 20.3rem;
+  }
+
+  @media only screen and (max-width: $bp-small) {
+    height: 17rem;
+  }
+  
   &-box {
     padding: 2.5rem;
-    font-size: 1.7rem;
+    font-size: 1.5rem;
     flex: 1 1 0;
     min-width: 0;
+    
+    @media only screen and (max-width: $bp-mediumLarge-2) {
+      padding: 1.9rem;
+      font-size: 1.2rem;
+    }
 
+    @media only screen and (max-width: $bp-medium) {
+      font-size: 1rem;
+    }
+
+    @media only screen and (max-width: $bp-medium-small) {
+      padding: 1rem;
+    }
+    
     &__icon {
       height: 9rem;
       width: 9rem;
       margin-bottom: 1.5rem;
       fill: #a37e2c;
+      
+      @media only screen and (max-width: $bp-mediumLarge-2) {
+        height: 6rem;
+        width: 6rem;
+      }
+
+      @media only screen and (max-width: $bp-medium-small) {
+        height: 4rem;
+        width: 4rem;
+        margin-bottom: 1rem;
+      }
     }
   }
 
   &:not(:last-child) {
     margin-right: 6rem;
+
+    @media only screen and (max-width: $bp-mediumLarge-2) {
+      margin-right: 3rem;
+    }
+
+    @media only screen and (max-width: $bp-mediumLarge-2) {
+      margin-right: 3rem;
+    }
+
+    @media only screen and (max-width: $bp-medium-small) {
+      margin-right: 2.4rem;
+    }
+
+    @media only screen and (max-width: $bp-small) {
+      margin-right: 0;
+      margin-bottom: 2.4rem;
+    }
   }
 
   &:hover {

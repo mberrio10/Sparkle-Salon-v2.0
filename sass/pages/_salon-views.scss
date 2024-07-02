@@ -7,6 +7,14 @@
     display: flex;
     padding: 4.5rem;
     border-radius: var(--line);
+
+    @media only screen and (max-width: $bp-medium) {
+        font-size: 1.2rem; 
+    }
+
+    @media only screen and (max-width: $bp-small) {
+        flex-wrap: wrap; 
+    }
 }
 
 .about-view {
@@ -15,6 +23,14 @@
     display: flex;
     padding: 4.5rem;
     border-radius: var(--line);
+
+    @media only screen and (max-width: $bp-medium) {
+        font-size: 1.2rem; 
+    }
+
+    @media only screen and (max-width: $bp-small) {
+        flex-wrap: wrap;
+    }
 }
 
 .hair-description {
@@ -23,6 +39,12 @@
     padding: 3rem;
     flex:  0 0 60%;
     margin-right: 4.5rem;
+    
+    @media only screen and (max-width: $bp-small) {
+        flex: 1 0 60%;
+        margin-right: 0;
+        margin-bottom: 4.5rem;
+    }
 }
 
 .about-contact {
@@ -31,6 +53,20 @@
     padding: 3rem;
     flex:  0 0 50%;
     margin-right: 4.5rem;
+    
+    @media only screen and (max-width: $bp-medium) {
+        padding: 2rem 1rem;
+    }
+    
+    @media only screen and (max-width: $bp-medium-small) {
+        margin-right: 2.4rem;
+    }
+
+    @media only screen and (max-width: $bp-small) {
+        flex: 1 0 50%;
+        margin-right: 0;
+        margin-bottom: 4.5rem;
+    }
 
     &__telephone {
         text-decoration: none;
@@ -53,4 +89,30 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
+}
+
+.my_iFrame {
+    @media only screen and (max-width: $bp-mediumLarge-2) {
+        width: 40rem;
+    }
+
+    @media only screen and (max-width: $bp-medium) {
+        width: 30rem;
+    }
+
+    @media only screen and (max-width: $bp-medium-small) {
+        width: 23rem;
+    }
+
+    @media only screen and (max-width: $bp-medium-small) {
+        width: 33rem;
+    }
+
+    @media only screen and (max-width: $bp-smallest) {
+        width: 28rem;
+    }
+
+    @media only screen and (max-width: $bp-verySmall-2) {
+        width: 23rem;
+    }
 }

@@ -9,19 +9,35 @@
     z-index: 10;
     transition: all 0.2s;
 
+    @media only screen and (max-width: $bp-small) {
+      width: 30%;
+    }
+
     &--p1 {
       left: -3%;
       top: 0;
+
+      @media only screen and (max-width: $bp-small) {
+        left: 13%;
+      }
     }
 
     &--p2 {
       left: 30%;
       top: -1rem;
+
+      @media only screen and (max-width: $bp-small) {
+        left: 36%;
+      }
     }
 
     &--p3 {
       right: -3%;
       top: 1rem;
+
+      @media only screen and (max-width: $bp-small) {
+        right: 15%;
+      }
     }
 
     &:hover {

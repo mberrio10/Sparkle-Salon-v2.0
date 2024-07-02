@@ -30,9 +30,18 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+    background-color: #22211d;
     transition: all 0.8s;
-    padding: 4rem 10rem;
+    padding: 1rem 3rem;
     z-index: 1500;
+
+    @media only screen and (max-width: $bp-small) {
+      padding: 1rem 2.7rem;
+    }
+
+    @media only screen and (max-width: $bp-verySmall-2) {
+      padding: 1rem 2rem;
+    }
   }
 
   &__logo-box {
@@ -68,6 +77,19 @@
     letter-spacing: 0.2rem;
     font-weight: 600;
     transition: all 0.8s;
+
+    @media only screen and (max-width: $bp-small) {
+      margin: 0 1rem;
+      font-size: 1.5rem;
+    }
+
+    @media only screen and (max-width: $bp-smallest) {
+      font-size: 1rem;
+    }
+
+    @media only screen and (max-width: $bp-verySmall-2) {
+      margin: 0 0.5rem;
+    }
   }
 
 }

@@ -4,12 +4,24 @@
 
 .u-margin-bottom-small {
   margin-bottom: 1.5rem !important;
+
+  @media only screen and (max-width: $bp-medium-small) {
+    margin-bottom: 1rem !important;
+  }
 }
 .u-margin-bottom-medium {
   margin-bottom: 4rem !important;
 }
 .u-margin-bottom-big {
   margin-bottom: 8rem !important;
+
+  @media only screen and (max-width: $bp-medium) {
+    margin-bottom: 5rem !important;
+  }
+
+  @media only screen and (max-width: $bp-medium-small) {
+    margin-bottom: 2rem !important;
+  }
 }
 
 .u-margin-top-big {

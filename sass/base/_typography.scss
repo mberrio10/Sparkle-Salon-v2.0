@@ -5,7 +5,11 @@ body {
   line-height: 1.2;
   background-color: $color-blackGold-base;
   color: $color-metallic-gold;
-  padding: 3rem; // 30px/10px = 3rem
+  padding: 3rem; // 30px/10px = 
+  
+  @media only screen and (max-width: $bp-medium) {
+    padding: 0;
+  }
 }
 
 .heading-primary {
@@ -23,6 +27,30 @@ body {
     animation-name: moveInLeft;
     animation-duration: 1s;
     animation-timing-function: ease-out;
+
+    @media only screen and (max-width: $bp-mediumLarge-2) {
+      font-size: 24rem;
+    }
+
+    @media only screen and (max-width: $bp-medium) {
+      font-size: 18rem;
+    }
+
+    @media only screen and (max-width: $bp-medium-small) {
+      font-size: 12rem;
+    }
+
+    @media only screen and (max-width: $bp-small) {
+      font-size: 6rem;
+    }
+
+    @media only screen and (max-width: $bp-smallest) {
+      letter-spacing: 2.7rem;
+    }
+
+    @media only screen and (max-width: $bp-verySmall-2) {
+      letter-spacing: 2rem;
+    }
   }
 
   &--Sub {
@@ -33,6 +61,22 @@ body {
     letter-spacing: 1.5rem;
 
     animation: moveInRight 1s ease-out; /* here I can use the "animation" property only and put all the parameters and CSS will figure it out the rest*/
+
+    @media only screen and (max-width: $bp-mediumLarge-2) {
+      font-size: 6.9rem;
+    }
+
+    @media only screen and (max-width: $bp-medium) {
+      font-size: 6.3rem;
+    }
+
+    @media only screen and (max-width: $bp-medium-small) {
+      font-size: 5.4rem;
+    }
+
+    @media only screen and (max-width: $bp-small) {
+      font-size: 3.3rem;
+    }
   }
 }
 
@@ -40,6 +84,10 @@ body {
   color: $color-metallic-gold;
   font-size: 2.7rem;
   padding: 0.6rem 0.5rem 1.1rem;
+
+  @media only screen and (max-width: $bp-small) {
+    font-size: 2rem;
+  }
 }
 
 .heading-secondary {
@@ -52,6 +100,7 @@ body {
     $color-light-gold,
     $color-brightOrange-gold
   );
+  background-clip: text;
   -webkit-background-clip: text; // i use this web-kit property so it cuts the background and sets it exactly where letters are
   color: transparent; // then i put the color: transparent because the gradient is actually sitting behind the text
   letter-spacing: 0.2rem;
@@ -61,12 +110,40 @@ body {
   font-size: $default-font-size;
   font-weight: 700;
   text-transform: uppercase;
+
+  @media only screen and (max-width: $bp-mediumLarge-2) {
+    font-size: 1.2rem;
+  }
+
+  @media only screen and (max-width: $bp-medium) {
+    font-size: 1rem;
+  }
+
+  @media only screen and (max-width: $bp-medium-small) {
+    font-size: 0.9rem;
+  }
 }
 
 .paragraph {
   font-size: $default-font-size;
 
+  @media only screen and (max-width: $bp-mediumLarge-2) {
+    font-size: 1.2rem;
+  }
+
+  @media only screen and (max-width: $bp-medium-small) {
+    font-size: 1rem;
+  }
+
   &:not(:last-child) {
     margin-bottom: 3rem;
+
+    @media only screen and (max-width: $bp-medium) {
+      margin-bottom: 1.5rem;
+    }
+
+    @media only screen and (max-width: $bp-medium-small) {
+      margin-bottom: 1rem;
+    }
   }
 }

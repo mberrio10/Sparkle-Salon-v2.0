@@ -2,6 +2,10 @@
   display: flex;
   align-items: center;
   justify-content: space-evenly;
+
+  @media only screen and (max-width: $bp-small) {
+    flex-wrap: wrap;
+  }
 }
 
 .cards {
@@ -13,6 +17,35 @@
   font-size: 1.7rem;
   border-radius: 3px;
   box-shadow: 0 1.5rem 3.9rem rgba($color-brightOrange-gold, 0.15);
+
+  @media only screen and (max-width: $bp-mediumLarge-2) {
+    height: 42rem;
+    width: 27rem;
+  }
+
+  @media only screen and (max-width: $bp-medium) {
+    height: 36rem;
+    width: 24rem;
+    font-size: 1.2rem;
+  }
+
+  @media only screen and (max-width: $bp-medium-small) {
+    height: 27rem;
+    width: 18rem;
+    font-size: 1rem;
+  }
+
+  @media only screen and (max-width: $bp-small) {
+    height: 36rem;
+    width: 24rem;
+    font-size: 1.2rem;
+  }
+
+  &:not(:last-child) {
+    @media only screen and (max-width: $bp-small) {
+      margin-bottom: 2rem;
+    }
+  }
 
   &__image {
     background-size: cover;
@@ -56,6 +89,14 @@
     background-color: rgba($color-blackGold-light, 0.7);
     transform: skewX(-30deg);
     transition: all 0.9s ease;
+
+    @media only screen and (max-width: $bp-mediumLarge-2) {
+      left: -145%;
+    }
+
+    @media only screen and (max-width: $bp-small) {
+      left: 0;
+    }
   }
 
   &:hover &__overlay {
@@ -86,6 +127,10 @@
         height: 1px;
         transform-origin: left;
         transition-delay: 0.6s;
+
+        @media only screen and (max-width: $bp-small) {
+          width: 115%;
+        }
       }
 
       &--2 {
@@ -95,6 +140,10 @@
         height: 0;
         transform-origin: top;
         transition-delay: 1s;
+
+        @media only screen and (max-width: $bp-small) {
+          height: 135%;
+        }
       }
 
       &--3 {
@@ -104,6 +153,10 @@
         height: 1px;
         transform-origin: right;
         transition-delay: 0.9s;
+
+        @media only screen and (max-width: $bp-small) {
+          width: 115%;
+        }
       }
 
       &--4 {
@@ -113,6 +166,10 @@
         height: 0;
         transform-origin: left;
         transition-delay: 1.2s;
+
+        @media only screen and (max-width: $bp-small) {
+          height: 135%;
+        }
       }
     }
 
@@ -122,6 +179,19 @@
       transition: all 0.6s ease;
       transition-timing-function: linear;
       transform: translateY(-1rem);
+
+      @media only screen and (max-width: $bp-medium) {
+        font-size: 1.2rem;
+      }
+
+      @media only screen and (max-width: $bp-medium-small) {
+        font-size: 1rem;
+      }
+      
+      @media only screen and (max-width: $bp-small) {
+        transform: translateY(0);
+        opacity: 1;
+      }
     }
 
     &-text {
@@ -129,6 +199,11 @@
       transform: translateY(1rem);
       transition: all 0.6s ease;
       transition-timing-function: linear;
+
+      @media only screen and (max-width: $bp-small) {
+        transform: translateY(0);
+        opacity: 1;
+      }
     }
   }
 

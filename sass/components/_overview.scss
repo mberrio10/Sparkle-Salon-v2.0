@@ -8,6 +8,16 @@
         font-weight: 300;
         letter-spacing: 1px;
         padding: 1.5rem 3rem;
+
+        @media only screen and (max-width: $bp-smallest) {
+            padding: 1.5rem 2rem;
+            font-size: 1.2rem;
+        }
+
+        @media only screen and (max-width: $bp-verySmall-2) {
+            padding: 0.5rem 1rem;
+            font-size: 1.2rem;
+        }
     }
     &__stars {
         margin-right: auto;
@@ -41,6 +51,11 @@
         flex-direction: column;
         align-items: center;
         justify-content: center;
+
+        @media only screen and (max-width: $bp-verySmall-2) {
+            margin-left: 1rem;
+            padding: 0 1.2rem;
+        }
     }
 
     &__rating-average {
@@ -59,6 +74,10 @@
     font-size: 1.5rem;
     display: flex;
     align-items: center;
+
+    @media only screen and (max-width: $bp-medium) {
+        font-size: 1.2rem; 
+      }
 
     &__count {
         margin-right: auto;
