@@ -896,6 +896,8 @@ td {
   letter-spacing: 0.2rem;
   font-weight: 600;
   transition: all 0.8s; }
+  .navigation__link:hover {
+    color: #aaa9ad; }
   @media only screen and (max-width: 26.6em) {
     .navigation__link {
       margin: 0 1rem;

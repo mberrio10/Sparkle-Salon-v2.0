@@ -77,6 +77,10 @@
     letter-spacing: 0.2rem;
     font-weight: 600;
     transition: all 0.8s;
+    
+    &:hover {
+      color: #aaa9ad;
+    }
 
     @media only screen and (max-width: $bp-small) {
       margin: 0 1rem;
