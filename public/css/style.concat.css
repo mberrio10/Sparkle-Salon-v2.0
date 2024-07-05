@@ -900,7 +900,7 @@ td {
     color: #aaa9ad; }
   @media only screen and (max-width: 26.6em) {
     .navigation__link {
-      margin: 0 1rem;
+      margin: 0 0.9rem;
       font-size: 1.5rem; } }
   @media only screen and (max-width: 23.6em) {
     .navigation__link {
@@ -921,6 +921,9 @@ td {
   @media only screen and (max-width: 26.6em) {
     .about-section {
       height: 60vh; } }
+  @media only screen and (max-width: 23.6em) {
+    .about-section {
+      height: 96vh; } }
 
 .features-section {
   padding: 18rem 12rem;
