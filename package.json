@@ -2,7 +2,7 @@
   "name": "sparkle-salon",
   "version": "1.0.0",
   "description": "Sparkle Salon V2.0 with google reviews",
-  "main": "index.js",
+  "main": "apps.js",
   "scripts": {
     "watch:sass": "node-sass sass/main.scss public/css/style.css -w",
     "devserver": "nodemon index.js",
@@ -26,6 +26,9 @@
   "dependencies": {
     "body-parser": "^1.19.0",
     "ejs": "^3.1.6",
-    "express": "^4.19.2"
+    "express": "^4.19.2",
+    "helmet": "^8.0.0",
+    "morgan": "^1.10.0",
+    "sparkle-salon": "file:"
   }
 }
