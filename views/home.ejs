@@ -6,7 +6,7 @@
     <!-- the h1 in this case is not an element is block because we could use this class in another block -->
     <h1 class="heading-primary">
       <!-- in this case we use the "--" because is a modifier of the block -->
-      <span class="heading-primary--main"> Sparkle </span>
+      <span class="heading-primary--main"><%= salonInfo.name%></span>
       <span class="heading-primary--Sub">
         Salon
         <a target="#" href="https://www.facebook.com/sparklesalonboutique/"
@@ -45,9 +45,7 @@
         </div>
       </div>
       <div class="description">
-        <p class="paragraph">
-          Welcome to Sparkle Beauty Salon in Coral Springs, your go-to for exceptional hair care. We`re committed to delivering unparalleled beauty services, ensuring satisfaction for all. Our unique approach to style creates a personalized elegance for every client. Your hair is more than an accessory - it`s a statement. Whether you`re seeking a fresh look or maintaining your style, our expert stylists are here to assist. Experience our luxury salon, where artistry meets innovation to bring out the best in your hair. Designed by us, worn beautifully by you.
-        </p>
+        <p class="paragraph"><%= salonInfo.description %></p>
         <a href="/about" class="btn-text"> Contact Us &rarr; </a>
       </div>
     </div>
@@ -55,123 +53,43 @@
 
   <section class="features-section">
     <div class="features">
-      <div class="feature">
-        <div class="feature-box u-text-center">
-          <svg class="feature-box__icon">
-            <use xlink:href="img/sprite.svg#icon-woman-hair-cut"></use>
-          </svg>
-          <h3 class="heading-tertiary u-margin-bottom-small">
-            Expert Hair Styling
-          </h3>
-          <p class="feature-box__text">
-            At Sparkle Beauty Salon in Coral Springs, our professional stylists provide personalized haircuts and styling to enhance your natural beauty.
-          </p>
+      <% features.forEach(feature => { %>
+        <div class="feature">
+          <div class="feature-box u-text-center">
+            <svg class="feature-box__icon">
+              <use xlink:href="img/sprite.svg#<%= feature.icon %>"></use>
+            </svg>
+            <h3 class="heading-tertiary u-margin-bottom-small"><%= feature.title %></h3>
+            <p class="feature-box__text"><%= feature.description %></p>
+          </div>
         </div>
-      </div>
-
-      <div class="feature">
-        <div class="feature-box u-text-center">
-          <svg class="feature-box__icon">
-            <use xlink:href="img/sprite.svg#icon-hairdryer-and-comb"></use>
-          </svg>
-          <h3 class="heading-tertiary u-margin-bottom-small">
-            Luxury Hair Treatments
-          </h3>
-          <p class="feature-box__text">
-            Experience the transformation with our luxury hair treatments, designed to rejuvenate your hair and give it a healthy, radiant glow.
-          </p>
-        </div>
-      </div>
-
-      <div class="feature">
-        <div class="feature-box u-text-center">
-          <svg class="feature-box__icon">
-            <use xlink:href="img/sprite.svg#icon-nail-file"></use>
-          </svg>
-          <h3 class="heading-tertiary u-margin-bottom-small">
-            Professional Nail Services
-          </h3>
-          <p class="feature-box__text">
-            Discover the art of elegance with our professional nail services in Coral Springs, offering manicures, pedicures, and creative nail art designs.
-          </p>
-        </div>
-      </div>
-
-      <div class="feature">
-        <div class="feature-box u-text-center">
-          <svg class="feature-box__icon">
-            <use xlink:href="img/sprite.svg#icon-nail"></use>
-          </svg>
-          <h3 class="heading-tertiary u-margin-bottom-small">
-            Relaxing Nail Spa
-          </h3>
-          <p class="feature-box__text">
-            Indulge in our relaxing nail spa services, providing a serene environment for you to unwind while we pamper your nails to perfection.
-          </p>
-        </div>
-      </div>
+      <% }) %>
     </div>
   </section>
 
   <section class="section-services">
     <div class="services">
-      <div class="cards u-text-center">
-        <div class="cards__image cards__image--1">&nbsp;</div>
-        <div class="cards__overlay">&nbsp;</div>
-        <div class="cards__content">
-          <span class="cards__content-line cards__content-line--1">&nbsp;</span>
-          <span class="cards__content-line cards__content-line--2">&nbsp;</span>
-          <span class="cards__content-line cards__content-line--3">&nbsp;</span>
-          <span class="cards__content-line cards__content-line--4">&nbsp;</span>
-          <h3
-            class="cards__content-title heading-tertiary u-margin-bottom-small"
-          >
-            Stunning Hair at Sparkle Salon!
-          </h3>
-          <p class="cards__content-text">
-            Book at Sparkle Salon: Your gateway to stunning hair!
-          </p>
-          <a href="/hair" class="cards__content-text btn-text"> Learn More &rarr; </a>
+      <% services.forEach(service => { %>
+        <div class="cards u-text-center">
+          <div class="cards__image <%= service.image %>">&nbsp;</div>
+          <div class="cards__overlay">&nbsp;</div>
+          <div class="cards__content">
+            <span class="cards__content-line cards__content-line--1">&nbsp;</span>
+            <span class="cards__content-line cards__content-line--2">&nbsp;</span>
+            <span class="cards__content-line cards__content-line--3">&nbsp;</span>
+            <span class="cards__content-line cards__content-line--4">&nbsp;</span>
+            <h3
+              class="cards__content-title heading-tertiary u-margin-bottom-small"
+            >
+              <%= service.title %>
+            </h3>
+            <p class="cards__content-text">
+              <%= service.description %>
+            </p>
+            <a href="<%= service.link %>" class="cards__content-text btn-text"> Learn More &rarr; </a>
+          </div>
         </div>
-      </div>
-      <div class="cards u-text-center">
-        <div class="cards__image cards__image--2">&nbsp;</div>
-        <div class="cards__overlay">&nbsp;</div>
-        <div class="cards__content">
-          <span class="cards__content-line cards__content-line--1">&nbsp;</span>
-          <span class="cards__content-line cards__content-line--2">&nbsp;</span>
-          <span class="cards__content-line cards__content-line--3">&nbsp;</span>
-          <span class="cards__content-line cards__content-line--4">&nbsp;</span>
-          <h3
-            class="cards__content-title heading-tertiary u-margin-bottom-small"
-          >
-            Nail Perfection at Sparkle Salon!
-          </h3>
-          <p class="cards__content-text">
-            Experience top-notch nail care at Sparkle Salon. Book now!
-          </p>
-          <a href="/nails" class="cards__content-text btn-text"> Learn More &rarr; </a>
-        </div>
-      </div>
-      <div class="cards u-text-center">
-        <div class="cards__image cards__image--3">&nbsp;</div>
-        <div class="cards__overlay">&nbsp;</div>
-        <div class="cards__content">
-          <span class="cards__content-line cards__content-line--1">&nbsp;</span>
-          <span class="cards__content-line cards__content-line--2">&nbsp;</span>
-          <span class="cards__content-line cards__content-line--3">&nbsp;</span>
-          <span class="cards__content-line cards__content-line--4">&nbsp;</span>
-          <h3
-            class="cards__content-title heading-tertiary u-margin-bottom-small"
-          >
-            Style Transformation at Sparkle!
-          </h3>
-          <p class="cards__content-text">
-            Sparkle Salon: Transforming your hair into a style statement!
-          </p>
-          <a href="/about" class="cards__content-text btn-text"> Learn More &rarr; </a>
-        </div>
-      </div>
+      <% }) %>
     </div>
   </section>
 

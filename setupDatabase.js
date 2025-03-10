@@ -1,6 +1,42 @@
 const db = require("./database");
 
 db.serialize(() => {
+  db.run(
+    `
+    DROP TABLE IF EXISTS salon_info
+  `,
+    (err) => {
+      if (err) {
+        console.error(err.message);
+      } else {
+        console.log("Existing services table dropped successfully.");
+      }
+    }
+  );
+  db.run(
+    `
+    DROP TABLE IF EXISTS features
+  `,
+    (err) => {
+      if (err) {
+        console.error(err.message);
+      } else {
+        console.log("Existing services table dropped successfully.");
+      }
+    }
+  );
+  db.run(
+    `
+    DROP TABLE IF EXISTS services
+  `,
+    (err) => {
+      if (err) {
+        console.error(err.message);
+      } else {
+        console.log("Existing services table dropped successfully.");
+      }
+    }
+  );
   //Create Salon_info table
   db.run(
     `
@@ -26,7 +62,7 @@ db.serialize(() => {
         VALUES (?, ?) 
         `,
     [
-      "Sparkle Salon",
+      "Sparkle",
       "Welcome to Sparkle Beauty Salon in Coral Springs, your go-to for exceptional hair care. We're committed to delivering unparalleled beauty services, ensuring satisfaction for all. Our unique approach to style creates a personalized elegance for every client. Your hair is more than an accessory - it's a statement. Whether you're seeking a fresh look or maintaining your style, our expert stylists are here to assist. Experience our luxury salon, where artistry meets innovation to bring out the best in your hair. Designed by us, worn beautifully by you.",
     ],
     (err) => {
@@ -44,7 +80,8 @@ db.serialize(() => {
         CREATE TABLE IF NOT EXISTS features (
             id INTEGER PRIMARY KEY,
             title TEXT,
-            description TEXT
+            description TEXT,
+            icon TEXT
         )
     `,
     (err) => {
@@ -58,13 +95,22 @@ db.serialize(() => {
 
   // Insert initial data into features
   db.run(
-    `
-        INSERT INTO features (title, description) VALUES     
-        ('Expert Hair Styling', 'At Sparkle Beauty Salon in Coral Springs, our professional stylists provide personalized haircuts and styling to enhance your natural beauty.'),
-        ('Luxury Hair Treatments', 'Experience the transformation with our luxury hair treatments, designed to rejuvenate your hair and give it a healthy, radiant glow.'),
-        ('Professional Nail Services', 'Discover the art of elegance with our professional nail services in Coral Springs, offering manicures, pedicures, and creative nail art designs.'),
-        ('Relaxing Nail Spa', 'Indulge in our relaxing nail spa services, providing a serene environment for you to unwind while we pamper your nails to perfection.')
-        `,
+    `INSERT INTO features (title, description, icon) VALUES 
+    (?, ?, ?), (?, ?, ?), (?, ?, ?), (?, ?, ?)`,
+    [
+      "Expert Hair Styling",
+      "At Sparkle Beauty Salon in Coral Springs, our professional stylists provide    personalized haircuts and styling to enhance your natural beauty.",
+      "icon-woman-hair-cut",
+      "Luxury Hair Treatments",
+      "Experience the transformation with our luxury hair treatments, designed to rejuvenate your hair and give it a healthy, radiant glow.",
+      "icon-hairdryer-and-comb",
+      "Professional Nail Services",
+      "Discover the art of elegance with our professional nail services in Coral Springs, offering manicures, pedicures, and creative nail art designs.",
+      "icon-nail-file",
+      "Relaxing Nail Spa",
+      "Indulge in our relaxing nail spa services, providing a serene environment for you to unwind while we pamper your nails to perfection.",
+      "icon-nail",
+    ],
     (err) => {
       if (err) {
         console.error(err.message);
@@ -81,7 +127,8 @@ db.serialize(() => {
             id INTEGER PRIMARY KEY,
             title TEXT,
             description TEXT,
-            link TEXT
+            link TEXT,
+            image TEXT
         )
     `,
     (err) => {
@@ -96,11 +143,23 @@ db.serialize(() => {
   // Insert initial data into services
   db.run(
     `
-            INSERT INTO services (title, description, link) VALUES
-            ('Stunning Hair at Sparkle Salon!', 'Book at Sparkle Salon: Your gateway to stunning hair!', '/hair'),
-            ('Nail Perfection at Sparkle Salon!', 'Experience top-notch nail care at Sparkle Salon. Book now!', '/nails'),
-            ('Style Transformation at Sparkle!', 'Sparkle Salon: Transforming your hair into a style statement!', '/about')
-        `,
+    INSERT INTO services (title, description, link, image) VALUES 
+    (?, ?, ?, ?), (?, ?, ?, ?), (?, ?, ?, ?)
+  `,
+    [
+      "Stunning Hair at Sparkle Salon!",
+      "Book at Sparkle Salon: Your gateway to stunning hair!",
+      "/hair",
+      "cards__image--1",
+      "Nail Perfection at Sparkle Salon!",
+      "Experience top-notch nail care at Sparkle Salon. Book now!",
+      "/nails",
+      "cards__image--2",
+      "Style Transformation at Sparkle!",
+      "Sparkle Salon: Transforming your hair into a style statement!",
+      "/about",
+      "cards__image--3",
+    ],
     (err) => {
       if (err) {
         console.error(err.message);
