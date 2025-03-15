@@ -41,6 +41,22 @@ db.serialize(() => {
     }
   });
 
+  db.run(`DROP TABLE IF EXISTS locations`, (err) => {
+    if (err) {
+      console.error(err.message);
+    } else {
+      console.log("Existing locations table dropped successfully");
+    }
+  });
+
+  db.run(`DROP TABLE IF EXISTS about_schedule`, (err) => {
+    if (err) {
+      console.error(err.message);
+    } else {
+      console.log("Existing about inf table dropped successfully");
+    }
+  });
+
   //Create Salon_info table
   db.run(
     `CREATE TABLE IF NOT EXISTS salon_info (
@@ -234,6 +250,77 @@ db.serialize(() => {
         console.error(err.message);
       } else {
         console.log("Inserted service: ${service}, price: ${price}");
+      }
+    });
+  });
+
+  // Create about address table
+  db.run(
+    `CREATE TABLE IF NOT EXISTS locations(
+      id INTEGER PRIMARY KEY, 
+      location TEXT, 
+      street TEXT,
+      city TEXT, 
+      phone TEXT
+    )`,
+    (err) => {
+      if (err) {
+        console.error(err.message);
+      } else {
+        console.log("Table about address created successfully.");
+      }
+    }
+  );
+
+  db.run(
+    `INSERT INTO locations (location, street, city, phone) VALUES (?, ?, ?, ?)`,
+    [
+      "Chevy Chase Plaza",
+      "10912 Wiles Rd",
+      "Coral Springs, FL 33076",
+      "(954) 245-5619",
+    ],
+    (err) => {
+      if (err) {
+        console.error(err.message);
+      } else {
+        console.log("Initial data inserted successfully in to locations");
+      }
+    }
+  );
+
+  // Create about schedule table
+  db.run(
+    `CREATE TABLE IF NOT EXISTS about_schedule(
+      id INTEGER PRIMARY KEY,
+      day TEXT,
+      hours TEXT
+    )`,
+    (err) => {
+      if (err) {
+        console.error(err.message);
+      } else {
+        console.log("Table about info created successfully.");
+      }
+    }
+  );
+
+  // Insert initial data into about_schedule table with parameterized queries
+  const scheduleData = [
+    ["Monday", "Closed"],
+    ["Tues, Wed, Thurs", "9:00am - 6:00pm"],
+    ["Friday", "9:00am - 7:00pm"],
+    ["Saturday", "9:00am - 5:00pm"],
+    ["Sunday", "Closed"],
+  ];
+
+  const insertAboutData = `INSERT INTO about_schedule (day, hours) VALUES (?, ?)`;
+  scheduleData.forEach(([day, hours]) => {
+    db.run(insertAboutData, [day, hours], (err) => {
+      if (err) {
+        console.error(err.message);
+      } else {
+        console.log("Inserted salon schedule: ${day} and hours: ${hours}");
       }
     });
   });
