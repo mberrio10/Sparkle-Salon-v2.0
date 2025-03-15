@@ -1,51 +1,53 @@
 const db = require("./database");
 
 db.serialize(() => {
-  db.run(
-    `
-    DROP TABLE IF EXISTS salon_info
-  `,
-    (err) => {
-      if (err) {
-        console.error(err.message);
-      } else {
-        console.log("Existing services table dropped successfully.");
-      }
+  db.run(`DROP TABLE IF EXISTS salon_info`, (err) => {
+    if (err) {
+      console.error(err.message);
+    } else {
+      console.log("Existing services table dropped successfully.");
     }
-  );
-  db.run(
-    `
-    DROP TABLE IF EXISTS features
-  `,
-    (err) => {
-      if (err) {
-        console.error(err.message);
-      } else {
-        console.log("Existing services table dropped successfully.");
-      }
+  });
+
+  db.run(`DROP TABLE IF EXISTS features`, (err) => {
+    if (err) {
+      console.error(err.message);
+    } else {
+      console.log("Existing services table dropped successfully.");
     }
-  );
-  db.run(
-    `
-    DROP TABLE IF EXISTS services
-  `,
-    (err) => {
-      if (err) {
-        console.error(err.message);
-      } else {
-        console.log("Existing services table dropped successfully.");
-      }
+  });
+
+  db.run(`DROP TABLE IF EXISTS services`, (err) => {
+    if (err) {
+      console.error(err.message);
+    } else {
+      console.log("Existing services table dropped successfully.");
     }
-  );
+  });
+
+  db.run(`DROP TABLE IF EXISTS hair_desc`, (err) => {
+    if (err) {
+      console.error(err.message);
+    } else {
+      console.log("Existing hair_desc table dropped successfully");
+    }
+  });
+
+  db.run(`DROP TABLE IF EXISTS pricing`, (err) => {
+    if (err) {
+      console.error(err.message);
+    } else {
+      console.log("Existing pricing table dropped successfully");
+    }
+  });
+
   //Create Salon_info table
   db.run(
-    `
-        CREATE TABLE IF NOT EXISTS salon_info (
-            id INTEGER PRIMARY KEY,
-            name TEXT,
-            description TEXT
-    )
-    `,
+    `CREATE TABLE IF NOT EXISTS salon_info (
+      id INTEGER PRIMARY KEY,
+      name TEXT,
+      description TEXT
+    )`,
     (err) => {
       if (err) {
         console.error(err.message);
@@ -57,10 +59,7 @@ db.serialize(() => {
 
   // Insert initial data into salon_info
   db.run(
-    `
-        INSERT INTO salon_info (name, description)
-        VALUES (?, ?) 
-        `,
+    `INSERT INTO salon_info (name, description) VALUES (?, ?)`,
     [
       "Sparkle",
       "Welcome to Sparkle Beauty Salon in Coral Springs, your go-to for exceptional hair care. We're committed to delivering unparalleled beauty services, ensuring satisfaction for all. Our unique approach to style creates a personalized elegance for every client. Your hair is more than an accessory - it's a statement. Whether you're seeking a fresh look or maintaining your style, our expert stylists are here to assist. Experience our luxury salon, where artistry meets innovation to bring out the best in your hair. Designed by us, worn beautifully by you.",
@@ -76,14 +75,12 @@ db.serialize(() => {
 
   // Create Feature table
   db.run(
-    `
-        CREATE TABLE IF NOT EXISTS features (
-            id INTEGER PRIMARY KEY,
-            title TEXT,
-            description TEXT,
-            icon TEXT
-        )
-    `,
+    `CREATE TABLE IF NOT EXISTS features (
+      id INTEGER PRIMARY KEY,
+      title TEXT,
+      description TEXT,
+      icon TEXT
+    )`,
     (err) => {
       if (err) {
         console.error(err.message);
@@ -122,15 +119,13 @@ db.serialize(() => {
 
   // Create Services table
   db.run(
-    `
-        CREATE TABLE IF NOT EXISTS services (
-            id INTEGER PRIMARY KEY,
-            title TEXT,
-            description TEXT,
-            link TEXT,
-            image TEXT
-        )
-    `,
+    `CREATE TABLE IF NOT EXISTS services (
+      id INTEGER PRIMARY KEY,
+      title TEXT,
+      description TEXT,
+      link TEXT,
+      image TEXT
+    )`,
     (err) => {
       if (err) {
         console.error(err.message);
@@ -142,10 +137,8 @@ db.serialize(() => {
 
   // Insert initial data into services
   db.run(
-    `
-    INSERT INTO services (title, description, link, image) VALUES 
-    (?, ?, ?, ?), (?, ?, ?, ?), (?, ?, ?, ?)
-  `,
+    `INSERT INTO services (title, description, link, image) VALUES 
+    (?, ?, ?, ?), (?, ?, ?, ?), (?, ?, ?, ?)`,
     [
       "Stunning Hair at Sparkle Salon!",
       "Book at Sparkle Salon: Your gateway to stunning hair!",
@@ -168,6 +161,82 @@ db.serialize(() => {
       }
     }
   );
+
+  // Create hair_desc table
+  db.run(
+    `CREATE TABLE IF NOT EXISTS hair_desc(
+      id INTEGER PRIMARY KEY,
+      description TEXT
+    )`,
+    (err) => {
+      if (err) {
+        console.error(err.message);
+      } else {
+        console.log("Table hair_desc created successfully");
+      }
+    }
+  );
+
+  // Insert the introductory description into hair_desc
+  const introDescription =
+    "Meet our skilled team at Sparkle Salon, Coral Springs. With extensive training and experience, we're committed to bringing you the latest hair and beauty trends. Every visit promises a satisfying experience, tailored to your unique needs.";
+
+  db.run(
+    `INSERT INTO hair_desc (description) VALUES (?)`,
+    [introDescription],
+    (err) => {
+      if (err) {
+        console.error(err.message);
+      } else {
+        console.log(
+          "Introductory description inserted successfully into hair_desc"
+        );
+      }
+    }
+  );
+
+  // Create pricing table
+  db.run(
+    `CREATE TABLE IF NOT EXISTS pricing(
+      id INTEGER PRIMARY KEY,
+      service TEXT,
+      price TEXT
+    )`,
+    (err) => {
+      if (err) {
+        console.error(err.message);
+      } else {
+        console.log("Table pricing created successfully.");
+      }
+    }
+  );
+
+  // Insert initial data into pricing table with parameterized queries
+  const pricingData = [
+    ["Women's hair cut", "$35"],
+    ["Men's hair cut", "$25"],
+    ["Deep Conditioner Treatment", "$25+"],
+    ["Blow Dry", "$30+"],
+    ["Hair Cut and Blow Dry", "$55+"],
+    ["Single Process", "$60+"],
+    ["Gloss", "$30+"],
+    ["Partial Hi-Lights", "$75+"],
+    ["Full Hi-Lights", "$125+"],
+    ["Brazilian Blowout Treatment", "$120+"],
+    ["Color Correction", "By Consultation Only"],
+  ];
+
+  const insertQuery = `INSERT INTO pricing (service, price) VALUES (?, ?)`;
+
+  pricingData.forEach(([service, price]) => {
+    db.run(insertQuery, [service, price], (err) => {
+      if (err) {
+        console.error(err.message);
+      } else {
+        console.log("Inserted service: ${service}, price: ${price}");
+      }
+    });
+  });
 
   db.close();
 });

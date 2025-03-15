@@ -22,6 +22,7 @@ router.get("/", (req, res) => {
                 salonInfo: salonRows[0],
                 features: featureRows,
                 services: serviceRows,
+                subtitle: "Salon",
               });
             }
           });
@@ -33,7 +34,26 @@ router.get("/", (req, res) => {
 
 // Define routes
 router.get("/hair", (req, res) => {
-  res.render("hair");
+  db.get("SELECT * FROM hair_desc", [], (err, hairDescRow) => {
+    if (err) {
+      console.error(err.message);
+      res.status(500).send("Error retrieving hair description");
+    } else {
+      db.all("SELECT * FROM pricing", [], (err, pricingRows) => {
+        if (err) {
+          console.error(err.message);
+          res.status(500).send("Error retrieving pricing data");
+        } else {
+          res.render("hair", {
+            hairDesc: hairDescRow,
+            pricing: pricingRows,
+            title: "Sparkle",
+            subtitle: "Hair",
+          });
+        }
+      });
+    }
+  });
 });
 
 // router.get("/nails", (req, res) => {
