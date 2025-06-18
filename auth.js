@@ -13,7 +13,11 @@ async function refreshAccessToken() {
     const newAccessToken = response.data.access_token;
     return newAccessToken;
   } catch (e) {
-    console.error("Error refreshing access token:", e.response.data);
+    console.error(
+      "Error refreshing access token:",
+      e.response?.data || e.message
+    );
+    return null;
   }
 }
 

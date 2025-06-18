@@ -110,46 +110,34 @@
       data-bs-ride="carousel"
     >
       <div class="carousel-inner">
-        <div class="carousel-item active">
-          <div class="review">
-            <figure class="review__shape">
-              <img
-                src="img/user-2.jpg"
-                alt="Sparkle Salon Client"
-                class="review__img"
-              />
-              <figcaption class="review__caption">Mary Anderson</figcaption>
-            </figure>
-            <div class="review__text">
-              <h3 class="heading-tertiary u-margin-bottom-small">
-                She is an expert in hair color!
-              </h3>
-              <p>
-                I've been coloring my hair for years and have visited numerous salons, but the color treatment I received at Sparkle Beauty Salon in Coral Springs is by far the best. The colorist understood exactly what I wanted and delivered beyond my expectations. The color is vibrant, rich, and perfectly suits my complexion. I've received so many compliments already. If you're considering a color change, Sparkle Beauty Salon is the place to go!
-              </p>
+        <% if (reviews.length) { %>
+          <% reviews.forEach((review, idx) => { %>
+            <div class="carousel-item <%= idx === 0 ? 'active' : '' %>">
+              <div class="review">
+                <figure class="review__shape">
+                  <img
+                    src="<%= review.reviewer.profilePhotoUrl || 'img/userIcon.png' %>"
+                    alt="Sparkle Salon Client"
+                    class="review__img"
+                  />
+                  <figcaption class="review__caption"><%= review.reviewer.displayName  %></figcaption>
+                </figure>
+                <div class="review__text">
+                  <h3 class="heading-tertiary u-margin-bottom-small">
+                    <%= review.starRating.replace("_STAR", "") %> Star Review
+                  </h3>
+                  <p>
+                    <%= review.comment || "(No comment provided)" %>
+                  </p>
+                </div>
+              </div>
             </div>
+          <% }) %>
+        <% } else { %>
+          <div class="carousel-item active">
+            <p>No Reviews Available Right Now!</p>
           </div>
-        </div>
-        <div class="carousel-item">
-          <div class="review">
-            <figure class="review__shape">
-              <img
-                src="img/user-6.jpg"
-                alt="Sparkle Salon Client"
-                class="review__img"
-              />
-              <figcaption class="review__caption">Jennifer Wilson</figcaption>
-            </figure>
-            <div class="review__text">
-              <h3 class="heading-tertiary u-margin-bottom-small">
-                WOW! My hair looks amazing
-              </h3>
-              <p>
-                I visited Sparkle Beauty Salon in Coral Springs for the first time and I am beyond impressed! The transformation is unbelievable. My hair has never looked better. The shine, the bounce, the texture - everything is just perfect. I can't stop looking at myself in the mirror. A big shout out to the expert stylists at Sparkle Beauty Salon. You guys are truly magicians!
-              </p>
-            </div>
-          </div>
-        </div>
+        <% } %>
       </div>
       <button
         class="carousel-control-prev"

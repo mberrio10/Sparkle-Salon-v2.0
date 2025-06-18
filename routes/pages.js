@@ -1,6 +1,7 @@
 const express = require("express");
 const router = express.Router();
 const db = require("../database");
+const { fetchReviews } = require("../reviews");
 
 function runQuery(query, params = []) {
   return new Promise((resolve, reject) => {
@@ -17,7 +18,23 @@ router.get("/", async (req, res) => {
     const features = await runQuery("SELECT * FROM features");
     const services = await runQuery("SELECT * FROM services");
 
-    res.render("home", { salonInfo, features, services, subtitle: "Salon" });
+    let reviews = [];
+    try {
+      reviews = await fetchReviews(
+        process.env.ACCOUNT_ID,
+        process.env.LOCATION_ID
+      );
+    } catch (reviewError) {
+      console.warn("Failed to fetch reviews:", reviewError.message);
+      // reviews stays as empty array, app still runs normally
+    }
+    res.render("home", {
+      salonInfo,
+      features,
+      services,
+      reviews,
+      subtitle: "Salon",
+    });
   } catch (error) {
     console.error(error.message);
     res.status(500).send("Error retrieving salon information");
@@ -30,9 +47,21 @@ router.get("/hair", async (req, res) => {
     const [hairDesc] = await runQuery("SELECT * FROM hair_desc LIMIT 1");
     const pricing = await runQuery("SELECT * FROM pricing");
 
+    let reviews = [];
+    try {
+      reviews = await fetchReviews(
+        process.env.ACCOUNT_ID,
+        process.env.LOCATION_ID
+      );
+    } catch (reviewError) {
+      console.warn("Failed to fetch reviews for /hair:", reviewError.message);
+      // reviews stays as empty array, app still runs normally
+    }
+
     res.render("hair", {
       hairDesc,
       pricing,
+      reviews,
       title: "Sparkle",
       subtitle: "Hair",
     });
