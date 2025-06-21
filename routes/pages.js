@@ -48,20 +48,47 @@ router.get("/hair", async (req, res) => {
     const pricing = await runQuery("SELECT * FROM pricing");
 
     let reviews = [];
+    let overallRating = null;
+    let totalReviews = 0;
+
     try {
-      reviews = await fetchReviews(
+      allReviews = await fetchReviews(
         process.env.ACCOUNT_ID,
         process.env.LOCATION_ID
       );
+
+      // Filter out reviews with empty comments
+      // This ensures we only keep reviews that have a non-empty comment
+      const validReviews = allReviews.filter(
+        (r) => r.comment && r.comment.trim() !== ""
+      );
+
+      // Randomly select 3 reviews from the fetched reviews
+      reviews = validReviews.sort(() => Math.random() - 0.5).slice(0, 3);
+
+      // Extract star ratings from the reviews
+      // Assuming starRating is a string like "5_STAR", we can parse it to get the numeric value
+      const ratings = validReviews.map((r) =>
+        parseFloat(r.starRating.replace("_STAR", ""))
+      );
+      // Calculate the average rating
+      if (ratings.length > 0) {
+        const avgRating =
+          ratings.reduce((sum, val) => sum + val, 0) / ratings.length;
+        overallRating = avgRating.toFixed(1); // Round to 1 decimal place
+        totalReviews = ratings.length; // Total number of reviews
+      }
     } catch (reviewError) {
-      console.warn("Failed to fetch reviews for /hair:", reviewError.message);
       // reviews stays as empty array, app still runs normally
+      console.warn("Failed to fetch reviews for /hair:", reviewError.message);
     }
 
     res.render("hair", {
       hairDesc,
       pricing,
       reviews,
+      overallRating,
+      totalReviews,
       title: "Sparkle",
       subtitle: "Hair",
     });

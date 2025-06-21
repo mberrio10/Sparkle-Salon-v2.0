@@ -1,5 +1,6 @@
 .review {
   width: 75%;
+  min-height: 28rem;
   margin: 0 auto;
   box-shadow: 0 3rem 6rem rgba($color-brightOrange-gold, 0.1);
   background-color: rgba($color-blackGold-light, 0.6);
@@ -31,7 +32,7 @@
 
   &__img {
     height: 100%;
-    transform: translateX(-4rem) scale(1.4);
+    transform: translateX(-.6rem) scale(1.5);
     transition: all 0.5s;
   }
 
@@ -48,7 +49,7 @@
     top: 50%;
     left: 50%;
     transform: translate(-50%, 20%);
-    color: $color-blackGold-base;
+    color: $color-brightOrange-gold;
     text-transform: uppercase;
     font-size: 1.7rem;
     text-align: center;
@@ -63,8 +64,8 @@
   }
 
   &:hover &__img {
-    transform: translateX(-4rem) scale(1);
-    filter: blur(3px);
+    transform: translateX(-.6rem) scale(1);
+    filter: blur(3px) brightness(0.5);
   }
 }
 

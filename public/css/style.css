@@ -655,6 +655,7 @@ td {
 
 .review {
   width: 75%;
+  min-height: 28rem;
   margin: 0 auto;
   box-shadow: 0 3rem 6rem rgba(224, 170, 62, 0.1);
   background-color: rgba(34, 33, 29, 0.6);
@@ -681,7 +682,7 @@ td {
         float: none; } }
   .review__img {
     height: 100%;
-    transform: translateX(-4rem) scale(1.4);
+    transform: translateX(-0.6rem) scale(1.5);
     transition: all 0.5s; }
   .review__text {
     transform: skew(12deg); }
@@ -693,7 +694,7 @@ td {
     top: 50%;
     left: 50%;
     transform: translate(-50%, 20%);
-    color: #1e1e1a;
+    color: #e0aa3e;
     text-transform: uppercase;
     font-size: 1.7rem;
     text-align: center;
@@ -704,8 +705,8 @@ td {
     opacity: 1;
     transform: translate(-50%, -50%); }
   .review:hover .review__img {
-    transform: translateX(-4rem) scale(1);
-    filter: blur(3px); }
+    transform: translateX(-0.6rem) scale(1);
+    filter: blur(3px) brightness(0.5); }
 
 .hair-review {
   background-color: #22211d;
