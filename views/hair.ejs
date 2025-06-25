@@ -36,24 +36,33 @@
 
   <div class="overview">
     <h1 class="overview__heading">Sparkle Salon Boutique</h1>
+    <% const fullStars = Math.floor(overallRating) %>
+    <% const hasHalfStar = (overallRating % 1) >= 0.25 && (overallRating % 1) <= 0.75 %>
+    <% const emptyStars = 5 - fullStars - (hasHalfStar ? 1 : 0) %>
     <div class="overview__stars">
-      <svg class="overview__icon-star"><use xlink:href="img/sprite.svg#icon-star"></svg>
-      <svg class="overview__icon-star"><use xlink:href="img/sprite.svg#icon-star"></svg>
-      <svg class="overview__icon-star"><use xlink:href="img/sprite.svg#icon-star"></svg>
-      <svg class="overview__icon-star"><use xlink:href="img/sprite.svg#icon-star_half"></svg>
-      <svg class="overview__icon-star"><use xlink:href="img/sprite.svg#icon-star_outline"></svg>
+      <% for( let i = 0; i < fullStars; i++ ) { %>
+        <svg class="overview__icon-star"><use xlink:href="img/sprite.svg#icon-star"></svg>
+      <% } %>
+      <% if (hasHalfStar) { %>
+        <svg class="overview__icon-star"><use xlink:href="img/sprite.svg#icon-star_half"></svg>
+      <% } %>
+      <% for( let i = 0; i < emptyStars; i++ ) { %>
+        <svg class="overview__icon-star"><use xlink:href="img/sprite.svg#icon-star_outline"></svg>
+      <% } %>
     </div>
 
     <div class="overview__location">
-      <svg class="overview__icon-location"><use xlink:href="img/sprite.svg#icon-location-pin"></svg>
+      <svg class="overview__icon-location"><use xlink:href="img/spriteSparkle.svg#icon-location-pin"></svg>
       <a href="https://maps.app.goo.gl/oZAd7QPDkceAYGxP8">
         <button class="btn-inline">Coral Springs, Florida</button>
       </a>
     </div>
 
     <div class="overview__rating">
-      <div class="overview__rating-average">9.0</div>
-      <div class="overview__rating-count">429 votes</div>
+      <% if (overallRating) { %>
+        <div class="overview__rating-average"><%= overallRating%></div>
+        <div class="overview__rating-count">(<%=totalReviews%> Reviews)</div>
+      <% } %>
     </div>
   </div>
 
@@ -73,45 +82,42 @@
       </table>
       <div class="recommended">
         <p class="recommended__count">
-          Wilma and others recommended this Beauty Salon
+          <%= randomReviewer  %>, and others recommended this Beauty Salon
         </p>
         <div class="recommended__clients">
-          <img src="/img/user-2.jpg" alt="Client 1" class="recommended__photo">
-          <img src="/img/user-6.jpg" alt="Client 2" class="recommended__photo">
-          <img src="/img/user-3.jpg" alt="Client 3" class="recommended__photo">
-          <img src="/img/user-4.jpg" alt="Client 4" class="recommended__photo">
+          <% if (reviews.length) { %>
+            <% reviews.forEach(review => { %>           
+              <img src="<%= review.reviewer.profilePhotoUrl || 'img/userIcon.png' %>" alt="Client 1" class="recommended__photo">
+            <% }) %>     
+          <% } %>
         </div>
       </div>
     </div>
     
     <div class="client-reviews">
-      <figure class="hair-review">
-        <blockquote class="hair-review__text">
-          I've been coloring my hair for years and have visited numerous salons, but the color treatment I received at Sparkle Beauty Salon in Coral Springs is by far the best.
-        </blockquote>
-        <figcaption class="hair-review__client">
-          <img src="/img/user-2.jpg" alt="Sparkle Customer" class="hair-review__photo">
-          <div class="hair-review__client-box">
-            <p class="hair-review__client-name">Mary Anderson</p>
-            <p class="hair-review__client-date">Jan 19th, 2022</p>
-          </div>
-          <div class="hair-review__rating">8.4</div>
-        </figcaption>
-      </figure>
-      
-      <figure class="hair-review">
-        <blockquote class="hair-review__text">
-          I visited Sparkle Beauty Salon in Coral Springs for the first time and I am beyond impressed! The transformation is unbelievable.
-        </blockquote>
-        <figcaption class="hair-review__client">
-          <img src="/img/user-6.jpg" alt="Sparkle Customer" class="hair-review__photo">
-          <div class="hair-review__client-box">
-            <p class="hair-review__client-name">Jennifer Wilson</p>
-            <p class="hair-review__client-date">Dec 23th, 2021</p>
-          </div>
-          <div class="hair-review__rating">9.3</div>
-        </figcaption>
-      </figure> 
+      <% if (reviews.length) { %>
+       <% reviews.forEach(review => { %>
+        <figure class="hair-review">
+          <blockquote class="hair-review__text">
+            <%= review.comment || "(No comment provided)" %>
+          </blockquote>
+          <figcaption class="hair-review__client">
+            <img src="<%= review.reviewer.profilePhotoUrl || 'img/userIcon.png' %>" alt="Sparkle Customer" class="hair-review__photo">
+            <div class="hair-review__client-box">
+              <p class="hair-review__client-name"><%= review.reviewer.displayName  %></p>
+              <p class="hair-review__client-date"><%= new Date(review.createTime).toLocaleDateString('en-US', { year: 'numeric', month: 'short', day: 'numeric' }) %></p>
+            </div>
+            <div class="hair-review__rating">8.4</div>
+          </figcaption>
+        </figure>
+       <% }) %>
+      <% } else { %>
+        <figure class="hair-review">
+          <blockquote class="hair-review__text">
+            No Reviews Available Right Now!
+          </blockquote>
+        </figure>
+      <% } %>
       <button class="btn-inline">Show More <span>&rarr;</span></button>  
     </div>
   </div>
@@ -121,3 +127,4 @@
   </div>
 </main>
 <%- include ("footer") -%>
+

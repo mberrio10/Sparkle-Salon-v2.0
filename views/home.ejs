@@ -2,6 +2,7 @@
 <!-- in the BEM system the header is a block because is a stand alone component that is meaningful on his own  -->
 <header class="header">
   <!-- the logo-box is an element because it can only live in the block and has no meaning on its own so we write the __ add the block with the element -->
+  <div class="header__background"></div>
   <div class="header__text-box">
     <!-- the h1 in this case is not an element is block because we could use this class in another block -->
     <h1 class="heading-primary">
@@ -57,7 +58,7 @@
         <div class="feature">
           <div class="feature-box u-text-center">
             <svg class="feature-box__icon">
-              <use xlink:href="img/sprite.svg#<%= feature.icon %>"></use>
+              <use xlink:href="img/spriteSparkle.svg#<%= feature.icon %>"></use>
             </svg>
             <h3 class="heading-tertiary u-margin-bottom-small"><%= feature.title %></h3>
             <p class="feature-box__text"><%= feature.description %></p>
@@ -123,8 +124,24 @@
                   <figcaption class="review__caption"><%= review.reviewer.displayName  %></figcaption>
                 </figure>
                 <div class="review__text">
+                  <% 
+                    const ratingMap = {ONE: 1, TWO: 2, THREE: 3, FOUR: 4, FIVE: 5,} 
+                    const stars = ratingMap[review.starRating?.toUpperCase()] || 0;
+                    const fullStars = Math.floor(stars)
+                    const hasHalfStar = stars - fullStars >= 0.5
+                    const emptyStars = 5 - fullStars - (hasHalfStar ? 1 : 0)
+                  %>
                   <h3 class="heading-tertiary u-margin-bottom-small">
-                    <%= review.starRating.replace("_STAR", "") %> Star Review
+                    <% for( let i = 0; i < fullStars; i++ ) { %>
+                      <svg class="overview__icon-star"><use xlink:href="img/sprite.svg#icon-star"></svg> 
+                    <% } %>
+                    <% if (hasHalfStar) { %>
+                      <svg class="overview__icon-star"><use xlink:href="img/sprite.svg#icon-star_half"></svg>
+                    <% } %>
+                    <% for( let i = 0; i < emptyStars; i++ ) { %>
+                      <svg class="overview__icon-star"><use xlink:href="img/sprite.svg#icon-star_outline"></svg>
+                    <% } %>
+                    Star Review
                   </h3>
                   <p>
                     <%= review.comment || "(No comment provided)" %>

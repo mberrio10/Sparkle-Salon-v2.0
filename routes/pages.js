@@ -48,15 +48,15 @@ router.get("/hair", async (req, res) => {
     const pricing = await runQuery("SELECT * FROM pricing");
 
     let reviews = [];
-    let overallRating = null;
     let totalReviews = 0;
+    let randomReviewer = "Anonymous";
+    let overallRating = null;
 
     try {
-      allReviews = await fetchReviews(
+      const allReviews = await fetchReviews(
         process.env.ACCOUNT_ID,
         process.env.LOCATION_ID
       );
-
       // Filter out reviews with empty comments
       // This ensures we only keep reviews that have a non-empty comment
       const validReviews = allReviews.filter(
@@ -64,13 +64,38 @@ router.get("/hair", async (req, res) => {
       );
 
       // Randomly select 3 reviews from the fetched reviews
-      reviews = validReviews.sort(() => Math.random() - 0.5).slice(0, 3);
+      reviews = validReviews.sort(() => Math.random() - 0.5).slice(0, 4);
+
+      //Pick a random review for the "reviewer" section
+      // If there are no valid reviews, we can set a default value
+      const randomReview =
+        validReviews[Math.floor(Math.random() * validReviews.length)];
+      randomReviewer = randomReview?.reviewer?.displayName || "Anonymous";
 
       // Extract star ratings from the reviews
       // Assuming starRating is a string like "5_STAR", we can parse it to get the numeric value
-      const ratings = validReviews.map((r) =>
-        parseFloat(r.starRating.replace("_STAR", ""))
-      );
+      const ratingMap = {
+        ONE: 1,
+        TWO: 2,
+        THREE: 3,
+        FOUR: 4,
+        FIVE: 5,
+      };
+      const ratings = validReviews
+        .map((r, i) => {
+          const raw =
+            typeof r.starRating === "string" ? r.starRating.toUpperCase() : "";
+          const numeric = ratingMap[raw]; // Convert to numeric value if possible
+          if (numeric) {
+            return numeric; // Return the numeric value if it exists
+          } else {
+            console.warn(`Unrecognized starRating at review #${i + 1}:`, raw);
+            // If the format is unexpected, we can return null or handle it as needed
+            return null;
+          }
+        })
+        .filter((r) => r !== null); // Filter out any null values
+
       // Calculate the average rating
       if (ratings.length > 0) {
         const avgRating =
@@ -89,6 +114,7 @@ router.get("/hair", async (req, res) => {
       reviews,
       overallRating,
       totalReviews,
+      randomReviewer,
       title: "Sparkle",
       subtitle: "Hair",
     });
