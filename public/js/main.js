@@ -1,8 +1,10 @@
 document.addEventListener("DOMContentLoaded", () => {
   const navbar = document.querySelector(".navigation__nav");
   const headerBg = document.querySelector(".header__background");
+  const featuresBg = document.querySelector(".features-section__background");
+  const hairBg = document.querySelector(".hair-banner__background");
 
-  if (!navbar || !headerBg) return;
+  if (!navbar && !headerBg && !hairBg && !featuresBg) return;
 
   let lastScrollTop = 0;
   let ticking = false;
@@ -29,8 +31,32 @@ document.addEventListener("DOMContentLoaded", () => {
     // 🌁 Header parallax and blur
     const offset = scrollY * 0.3;
     const blur = Math.min(scrollY * 0.02, 6); // Limit blur to a maximum of 6px
-    headerBg.style.transform = `translateY(${offset}px)`;
-    headerBg.style.filter = `blur(${blur}px)`;
+
+    if (headerBg) {
+      headerBg.style.transform = `translateY(${offset}px)`;
+      headerBg.style.filter = `blur(${blur}px)`;
+    }
+
+    // 🌈 Hair banner parallax effect
+    if (hairBg) {
+      hairBg.style.transform = `translateY(${offset}px)`;
+    }
+
+    // 🌟 Features section parallax effect
+    if (featuresBg) {
+      const rect = featuresBg.getBoundingClientRect();
+      const viewHeight = window.innerHeight;
+
+      if (rect.top < viewHeight && rect.bottom > 0) {
+        const percentVisible = 1 - rect.top / viewHeight;
+        const offset = percentVisible * 100;
+        const scale = 1 + percentVisible * 0.05;
+
+        featuresBg.style.transform = `translateY(${offset}px) scale(${scale})`;
+      } else {
+        featuresBg.style.transform = `translateY(0px)`; // Reset if out of view
+      }
+    }
 
     ticking = false;
   }
@@ -42,5 +68,3 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 });
-
-console.log("🔥 main.js is connected!");

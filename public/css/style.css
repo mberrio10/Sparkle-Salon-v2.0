@@ -775,11 +775,17 @@ td {
       margin-left: 1.5rem; } }
 
 .hair-banner {
+  position: relative;
   height: 50vh;
-  background-image: linear-gradient(to right bottom, rgba(34, 33, 29, 0.87), rgba(25, 25, 28, 0.87)), url("..//img/hair-banner.jpg");
-  background-size: cover;
-  background-position: top;
-  position: relative; }
+  overflow: hidden; }
+  .hair-banner__background {
+    position: absolute;
+    inset: 0;
+    background-image: linear-gradient(to right bottom, rgba(34, 33, 29, 0.87), rgba(25, 25, 28, 0.87)), url("..//img/hair-banner.jpg");
+    background-size: cover;
+    background-position: top;
+    will-change: transform;
+    z-index: 0; }
 
 .nails-banner {
   height: 57vh;
@@ -927,7 +933,7 @@ td {
 
 .about-section {
   background-color: #19191c;
-  padding: 9% 12% 15%; }
+  padding: 9% 12% 18%; }
   @media only screen and (max-width: 48em) {
     .about-section {
       padding: 9% 9% 15%; } }
@@ -942,11 +948,20 @@ td {
       height: 96vh; } }
 
 .features-section {
-  padding: 18rem 12rem;
-  background-image: linear-gradient(to right bottom, rgba(247, 239, 138, 0.87), rgba(224, 170, 62, 0.87)), url("../img/perfect-hair.jpg");
-  background-size: cover;
+  position: relative;
+  overflow: hidden;
   transform: skewY(-6deg);
-  margin-top: -7rem; }
+  padding: 18rem 12rem;
+  margin-top: -10rem; }
+  .features-section__background {
+    position: absolute;
+    inset: 0;
+    top: -10rem;
+    height: calc(100% + 10rem);
+    background-image: linear-gradient(to right bottom, rgba(247, 239, 138, 0.87), rgba(224, 170, 62, 0.87)), url("../img/perfect-hair.jpg");
+    background-size: cover;
+    will-change: transform;
+    z-index: 0; }
   @media only screen and (max-width: 64em) {
     .features-section {
       padding: 15rem 9rem; } }
@@ -956,13 +971,15 @@ td {
   @media only screen and (max-width: 37.6em) {
     .features-section {
       padding: 9rem 3rem; } }
-  .features-section > * {
+  .features-section > .features {
+    position: relative;
+    z-index: 1;
     transform: skewY(6deg); }
 
 .section-services {
   background-color: #19191c;
-  padding: 25rem 0 15rem 0;
-  margin-top: -7rem; }
+  padding: 30rem 0 15rem 0;
+  margin-top: -10rem; }
 
 .section-reviews {
   position: relative;

@@ -1,5 +1,11 @@
-.hair-banner { 
-    height: 50vh;
+.hair-banner {
+  position: relative;
+  height: 50vh;
+  overflow: hidden;
+
+  &__background {
+    position: absolute;
+    inset: 0;
     background-image: linear-gradient(
         to right bottom,
         rgba($color-blackGold-light, 0.87),
@@ -8,8 +14,10 @@
       url('..//img/hair-banner.jpg');
     background-size: cover;
     background-position: top;
-    position: relative;
+    will-change: transform;
+    z-index: 0;
   }
+}
 
 .nails-banner {
     height: 57vh;
